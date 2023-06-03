@@ -1,0 +1,17 @@
+---
+- name: continuouslearning.io
+  description: Continuous Learning
+- name: continuouslearning.training
+  description: Continuous Learning
+- name: p6m7g8.org
+  description: Open Source
+- name: p6m7g8.net
+  description: Infrastructure
+- name: gollucci.us
+  description: Me
+- name: gollucci.io
+  description: Me
+- name: gollucci.info
+  description: Me
+- name: gollucci.com
+  description: Family
