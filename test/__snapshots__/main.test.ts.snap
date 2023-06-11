@@ -28,6 +28,60 @@ exports[`Snapshot 1`] = `
       },
       "Type": "AWS::Route53::HostedZone",
     },
+    "golluccicom425C70D7": {
+      "Properties": {
+        "HostedZoneConfig": {
+          "Comment": "Family",
+        },
+        "Name": "gollucci.com.",
+      },
+      "Type": "AWS::Route53::HostedZone",
+    },
+    "gollucciinfo409C0781": {
+      "Properties": {
+        "HostedZoneConfig": {
+          "Comment": "Me",
+        },
+        "Name": "gollucci.info.",
+      },
+      "Type": "AWS::Route53::HostedZone",
+    },
+    "gollucciio6E4C2D3E": {
+      "Properties": {
+        "HostedZoneConfig": {
+          "Comment": "Me",
+        },
+        "Name": "gollucci.io.",
+      },
+      "Type": "AWS::Route53::HostedZone",
+    },
+    "golluccius2D27AA75": {
+      "Properties": {
+        "HostedZoneConfig": {
+          "Comment": "Me",
+        },
+        "Name": "gollucci.us.",
+      },
+      "Type": "AWS::Route53::HostedZone",
+    },
+    "p6m7g8net6D1C1FBA": {
+      "Properties": {
+        "HostedZoneConfig": {
+          "Comment": "Infrastructure",
+        },
+        "Name": "p6m7g8.net.",
+      },
+      "Type": "AWS::Route53::HostedZone",
+    },
+    "p6m7g8orgBC71BCC8": {
+      "Properties": {
+        "HostedZoneConfig": {
+          "Comment": "Open Source",
+        },
+        "Name": "p6m7g8.org.",
+      },
+      "Type": "AWS::Route53::HostedZone",
+    },
   },
   "Rules": {
     "CheckBootstrapVersion": {
