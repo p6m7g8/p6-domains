@@ -35,3 +35,24 @@ jobs:
         run: |
           pnpm up --latest
           git diff
+      - name: Create Pull Request
+        id: create-pr
+        uses: peter-evans/create-pull-request@v7.0.5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: |-
+            chore(deps): upgrade dependencies
+
+            Upgrades project dependencies. See details in [workflow run].
+
+            [Workflow Run]: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          branch: github-actions/upgrade-main
+          title: "chore(deps): upgrade dependencies"
+          labels: auto-approve
+          body: |-
+            Upgrades project dependencies. See details in [workflow run].
+
+            [Workflow Run]: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          author: github-actions <github-actions@github.com>
+          committer: github-actions <github-actions@github.com>
+          signoff: true
