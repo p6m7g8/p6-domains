@@ -8,8 +8,6 @@ on:
 jobs:
   upgrade:
     runs-on: ubuntu-latest
-    container:
-      image: jsii/superchain:1-bookworm-slim-node22
     steps:
       - name: Checkout code
         uses: actions/checkout@v4.2.2
