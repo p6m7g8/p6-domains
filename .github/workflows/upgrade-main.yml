@@ -39,7 +39,7 @@ jobs:
         id: create-pr
         uses: peter-evans/create-pull-request@v7.0.5
         with:
-          token: ${{ secrets.P6_A_GH_TOKEN }}
+          token: ${{ secrets.P6_PGOLLUCCI_GH_TOKEN }}
           commit-message: |-
             chore(deps): upgrade dependencies
 
