@@ -1,0 +1,31 @@
+name: upgrade-main
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    container:
+      image: jsii/superchain:1-bookworm-slim-node22
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+          ref: main
+      - name: Cache NPM dependencies
+        uses: actions/cache@v4.1.2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
+        run: npm install
+      - name: Update Deps
+        run: |
+          npm update
+          git diff
