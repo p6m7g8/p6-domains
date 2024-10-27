@@ -1,0 +1,37 @@
+name: upgrade-main
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+          ref: main
+      - name: Install Node.js
+        run: |
+          curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+          sudo apt-get install -y nodejs
+
+      - name: Install pnpm and dependencies
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+          pnpm install
+      - name: Cache NPM dependencies
+        uses: actions/cache@v4.1.2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Update Deps
+        run: |
+          pnpm up --latest
+          git diff
